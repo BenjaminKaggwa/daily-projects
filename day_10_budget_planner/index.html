@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budget Planner</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; color: #333; padding: 20px; }
+  h1 { text-align: center; margin-bottom: 20px; color: #2d3748; }
+  .summary { display: flex; gap: 16px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+  .card { background: white; border-radius: 12px; padding: 20px 32px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); min-width: 160px; }
+  .card h3 { font-size: 13px; color: #888; margin-bottom: 6px; text-transform: uppercase; }
+  .card p { font-size: 26px; font-weight: 700; }
+  .income { color: #38a169; }
+  .expense { color: #e53e3e; }
+  .balance { color: #3182ce; }
+  form { background: white; max-width: 480px; margin: 0 auto 24px; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  form h2 { margin-bottom: 14px; font-size: 16px; color: #555; }
+  input, select { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
+  button { width: 100%; padding: 11px; background: #3182ce; color: white; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
+  button:hover { background: #2b6cb0; }
+  table { width: 100%; max-width: 600px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-collapse: collapse; overflow: hidden; }
+  th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+  th { background: #edf2f7; color: #555; font-weight: 600; }
+  .del { color: #e53e3e; cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>💰 Budget Planner</h1>
+<div class="summary">
+  <div class="card"><h3>Income</h3><p class="income" id="totalIncome">RM 0.00</p></div>
+  <div class="card"><h3>Expenses</h3><p class="expense" id="totalExpense">RM 0.00</p></div>
+  <div class="card"><h3>Balance</h3><p class="balance" id="balance">RM 0.00</p></div>
+</div>
+<form onsubmit="addEntry(event)">
+  <h2>Add Transaction</h2>
+  <input type="text" id="desc" placeholder="Description" required>
+  <input type="number" id="amount" placeholder="Amount (RM)" step="0.01" min="0.01" required>
+  <select id="type"><option value="income">Income</option><option value="expense">Expense</option></select>
+  <button type="submit">Add</button>
+</form>
+<table>
+  <thead><tr><th>Description</th><th>Type</th><th>Amount</th><th></th></tr></thead>
+  <tbody id="list"></tbody>
+</table>
+<script>
+  let entries = JSON.parse(localStorage.getItem("budget") || "[]");
+  function render() {
+    const list = document.getElementById("list");
+    list.innerHTML = "";
+    let income = 0, expense = 0;
+    entries.forEach((e, i) => {
+      if (e.type === "income") income += e.amount;
+      else expense += e.amount;
+      list.innerHTML += `<tr>
+        <td>${e.desc}</td>
+        <td style="color:${e.type==='income'?'#38a169':'#e53e3e'}">${e.type}</td>
+        <td>RM ${e.amount.toFixed(2)}</td>
+        <td class="del" onclick="del(${i})">✕</td>
+      </tr>`;
+    });
+    document.getElementById("totalIncome").textContent  = `RM ${income.toFixed(2)}`;
+    document.getElementById("totalExpense").textContent = `RM ${expense.toFixed(2)}`;
+    const bal = income - expense;
+    const b = document.getElementById("balance");
+    b.textContent = `RM ${bal.toFixed(2)}`;
+    b.style.color  = bal >= 0 ? "#38a169" : "#e53e3e";
+  }
+  function addEntry(e) {
+    e.preventDefault();
+    entries.push({ desc: document.getElementById("desc").value, amount: parseFloat(document.getElementById("amount").value), type: document.getElementById("type").value });
+    localStorage.setItem("budget", JSON.stringify(entries));
+    e.target.reset();
+    render();
+  }
+  function del(i) { entries.splice(i,1); localStorage.setItem("budget", JSON.stringify(entries)); render(); }
+  render();
+</script>
+</body>
+</html>
