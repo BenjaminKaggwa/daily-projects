@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.7}
+  header{background:linear-gradient(135deg,#1e40af,#7c3aed);padding:80px 20px;text-align:center}
+  header h1{font-size:2.8rem;font-weight:800;margin-bottom:8px}
+  header p{font-size:1.2rem;opacity:.85}
+  .btn{display:inline-block;margin-top:20px;padding:12px 28px;background:white;color:#1e40af;border-radius:8px;font-weight:700;text-decoration:none}
+  section{max-width:900px;margin:0 auto;padding:60px 20px}
+  h2{font-size:1.7rem;margin-bottom:28px;color:#93c5fd;border-left:4px solid #3b82f6;padding-left:12px}
+  .skills{display:flex;flex-wrap:wrap;gap:10px}
+  .skill{background:#1e3a5f;padding:8px 18px;border-radius:20px;font-size:.9rem;color:#93c5fd}
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+  .card{background:#1e293b;border-radius:12px;padding:24px;border:1px solid #334155}
+  .card h3{color:#e2e8f0;margin-bottom:8px}
+  .card p{color:#94a3b8;font-size:.9rem}
+  .card .tag{display:inline-block;margin-top:10px;padding:3px 10px;background:#1e40af;border-radius:12px;font-size:.8rem}
+  footer{text-align:center;padding:30px;color:#64748b;border-top:1px solid #1e293b}
+  a{color:#93c5fd}
+</style>
+</head>
+<body>
+<header>
+  <h1>Your Name</h1>
+  <p>Computer Science Student | Aspiring Software Engineer</p>
+  <a href="mailto:your@email.com" class="btn">Contact Me</a>
+</header>
+<section>
+  <h2>About Me</h2>
+  <p>Hi! I'm a Computer Science student passionate about building useful software. I enjoy working with Python, SQL, and web technologies. I'm currently looking for internship and junior developer opportunities.</p>
+</section>
+<section>
+  <h2>Skills</h2>
+  <div class="skills">
+    <span class="skill">Python</span>
+    <span class="skill">SQL / SQLite</span>
+    <span class="skill">HTML &amp; CSS</span>
+    <span class="skill">JavaScript</span>
+    <span class="skill">Git &amp; GitHub</span>
+    <span class="skill">C#</span>
+    <span class="skill">Data Structures</span>
+    <span class="skill">REST APIs</span>
+  </div>
+</section>
+<section>
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Expense Tracker</h3>
+      <p>CLI app to track personal expenses with SQLite storage, categories, and totals.</p>
+      <span class="tag">Python</span> <span class="tag">SQLite</span>
+    </div>
+    <div class="card">
+      <h3>Library Manager</h3>
+      <p>Full CRUD system for managing library books, borrowing, and returning.</p>
+      <span class="tag">Python</span> <span class="tag">SQLite</span>
+    </div>
+    <div class="card">
+      <h3>Weather App</h3>
+      <p>Fetch live weather for any city using the free Open-Meteo API.</p>
+      <span class="tag">Python</span> <span class="tag">API</span>
+    </div>
+  </div>
+</section>
+<section>
+  <h2>Contact</h2>
+  <p>📧 <a href="mailto:your@email.com">your@email.com</a></p>
+  <p>💼 <a href="https://github.com/yourusername">github.com/yourusername</a></p>
+  <p>🔗 <a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></p>
+</section>
+<footer>Built with HTML &amp; CSS — Part of my 30-day GitHub project challenge</footer>
+</body>
+</html>
