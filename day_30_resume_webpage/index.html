@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Resume</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6}
+  .container{max-width:860px;margin:40px auto;background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08)}
+  header{background:linear-gradient(135deg,#1e40af,#4f46e5);color:white;padding:40px 48px}
+  header h1{font-size:2.2rem;font-weight:800}
+  header p{font-size:1.05rem;opacity:.85;margin-top:4px}
+  .contact{margin-top:16px;display:flex;flex-wrap:wrap;gap:16px;font-size:.9rem}
+  .contact span{opacity:.9}
+  main{padding:36px 48px}
+  .section{margin-bottom:32px}
+  h2{font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#1e40af;border-bottom:2px solid #e2e8f0;padding-bottom:6px;margin-bottom:16px}
+  .entry{margin-bottom:18px}
+  .entry-header{display:flex;justify-content:space-between;flex-wrap:wrap}
+  .entry-header strong{font-size:1rem;color:#0f172a}
+  .entry-header span{color:#64748b;font-size:.9rem}
+  .entry em{display:block;color:#475569;font-size:.9rem;margin-bottom:4px}
+  ul{padding-left:20px;color:#475569;font-size:.92rem}
+  li{margin-bottom:4px}
+  .skills{display:flex;flex-wrap:wrap;gap:8px}
+  .skill{padding:5px 14px;background:#eff6ff;color:#1e40af;border-radius:20px;font-size:.88rem;font-weight:500}
+  @media print{body{background:white}.container{box-shadow:none;border-radius:0;margin:0}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>Your Full Name</h1>
+  <p>Computer Science Student | Aspiring Software Engineer</p>
+  <div class="contact">
+    <span>📧 your@email.com</span>
+    <span>📱 +60 12-345 6789</span>
+    <span>🌐 github.com/yourusername</span>
+    <span>📍 Kuala Lumpur, Malaysia</span>
+  </div>
+</header>
+<main>
+  <div class="section">
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-header"><strong>Bachelor of Computer Science</strong><span>2022 – 2025</span></div>
+      <em>Your University Name, Kuala Lumpur</em>
+      <ul><li>Relevant modules: Data Structures, Algorithms, Database Systems, Software Engineering</li><li>CGPA: X.XX / 4.00</li></ul>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <span class="skill">Python</span><span class="skill">SQL / SQLite</span>
+      <span class="skill">HTML &amp; CSS</span><span class="skill">JavaScript</span>
+      <span class="skill">C#</span><span class="skill">Git &amp; GitHub</span>
+      <span class="skill">REST APIs</span><span class="skill">Data Structures</span>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Projects</h2>
+    <div class="entry">
+      <div class="entry-header"><strong>30-Day GitHub Project Challenge</strong><span>2024</span></div>
+      <em>Python, SQL, HTML/CSS, JavaScript</em>
+      <ul>
+        <li>Built and published 30 software projects over 30 consecutive days</li>
+        <li>Projects span CLI tools, web apps, database systems, and API integrations</li>
+        <li>Demonstrates consistency, self-motivation, and breadth of technical knowledge</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-header"><strong>Library Management System</strong><span>2024</span></div>
+      <em>Python, SQLite</em>
+      <ul><li>Full CRUD application for managing books, borrowing, and returning with persistent storage</li></ul>
+    </div>
+    <div class="entry">
+      <div class="entry-header"><strong>Budget Planner Web App</strong><span>2024</span></div>
+      <em>HTML, CSS, JavaScript</em>
+      <ul><li>Browser-based budget tracker with real-time balance calculation and local storage</li></ul>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="entry-header"><strong>Your Role / Internship</strong><span>Month Year – Month Year</span></div>
+      <em>Company Name, Location</em>
+      <ul><li>Add your experience here</li><li>Use action verbs: built, developed, improved, designed</li></ul>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Achievements &amp; Certifications</h2>
+    <ul>
+      <li>Add any awards, hackathon placements, or online certifications here</li>
+      <li>e.g. Python for Everybody — Coursera (2024)</li>
+    </ul>
+  </div>
+</main>
+</div>
+</body>
+</html>
